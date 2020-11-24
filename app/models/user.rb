@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :reservations, through: :animals, source: :bookings
   # As a renter
   has_many :bookings, foreign_key: :renter_id
+  has_one_attached :avatar
 
   validates :username, presence: true, uniqueness: true
 end
