@@ -1,6 +1,15 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+
+.brand_name{
+  font-family: 'Lobster', cursive;
+  color: rgb(42, 42, 42);
+  font-size: 2em;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +18,12 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+#rainbow {
+  background: violet; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, orange , yellow, violet); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, orange, yellow, violet); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, orange, yellow, violet); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, orange , yellow, violet); /* Standard syntax (must be last) */
 }
