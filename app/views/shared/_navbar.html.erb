@@ -15,7 +15,7 @@
       <% if user_signed_in? %>
       <% # Si connecté %>
         <li class="nav-item dropdown">
-          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/nfilzi" />
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%=cl_image_path current_user.avatar.key, width: 100, crop: :fill%>"/>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Mon tableau de bord", root_path, class: "dropdown-item" %>
             <%= link_to "Ajouter un Mystical", root_path, class: "dropdown-item" %>
