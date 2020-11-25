@@ -1,13 +1,123 @@
-.card {
-  max-width: 340px;
-  height: 200px;
-  margin: auto;
+.card-animal {
+  // width: 300px;
+  height: 360px;
+  // margin: auto;
+  // overflow: hidden;
+  // overflow-y: auto;
+  // position: relative;
+  // z-index: 1;
+  // overflow-x: hidden;
   background-color: rgba(255, 255, 255, 1);
   display: flex;
   flex-direction: column;
+  transition: 0.3s;
   border-radius: 10px;
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
   opacity: 0.8;
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+}
+
+.card-animal-linked:hover {
+  text-decoration: none !important;
+}
+
+.card-animal > img {
+  height: 80%;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+
+.card-animal .card-animal-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-animal-infos .card-animal-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+// ***********************************************
+// GRID CARDS
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 26px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.reservation-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+}
+
+.reservation-card .reservation-card-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+.reservation-card  p {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 12px;
+}
+
+.reservation-card  h5 {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 22px;
+}
+
+.reservation-card .reservation-card-actions {
+  display: flex;
+  width: 180px;
 }
 
 .card-animal-show {
