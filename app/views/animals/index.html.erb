@@ -1,0 +1,22 @@
+<h1 class="pt-2 text-center">Voici nos Mysticals!</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="cards m-2">
+        <% @animals.each do |animal| %>
+          <div class="card-animal">
+            <%= cl_image_tag animal.photo.key, width: 400, crop: :fill%>
+            <div class="card-animal-infos">
+              <div>
+                <h6><%= link_to(animal.name, animal_path(animal)) %></h6>
+              </div>
+              <img src="<%=cl_image_path animal.owner.avatar.key, width: 50, crop: :fill%>" class="card-animal-user avatar-bordered" />
+              <p class="card-animal-pricing"><%= "#{animal.price_per_day} €/j"%></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
