@@ -1,22 +1,24 @@
 .footer {
-  background: #dfdfdf;
+  background: $light-pink;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
-  color: rgba(182, 84, 84, 0.3);
+  color: $blue;
   width: 100%;
+  border-bottom: 2px dotted $pink;
+  border-top: 2px dotted $pink;
 }
 .footer_links {
   display: flex;
   align-items: center;
 }
 .footer_links a {
-  color: rgb(255, 255, 255);
+  // color: rgb(255, 255, 255);
   opacity: 0.15;
   text-decoration: none;
-  font-size: 24px;
+  // font-size: 24px;
   padding: 0px 10px;
 }
 .footer_links a:hover {
