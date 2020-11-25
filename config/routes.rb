@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   resources :my_animals, only: [:new, :create]
   resources :reservations, only: [] do
     member do
+      get :deny
+      get :accept
       patch :accept
       patch :deny
     end

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="m-9">
+    <h1>Hello <%= @user%></h1>
+  </div class="mb-9">
+  <% @pending_reservations.each do |reservation| %>
+    <div>
+      <div class="reservation-card">
+  <%# <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" /> %>
+        <div class="reservation-card-content ">
+          <h5><strong><%= reservation.animal.name %></strong></h5>
+          <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price%>€</p>
+        </div>
+
+        <div class="reservation-card-actions d-flex justify-content-between ">
+          <%= link_to "Refuser", deny_reservation_path(reservation), class:"btn btn-primary text-white shadow rounded m-7" %>
+          <%= link_to "Valider", accept_reservation_path(reservation), class:"btn btn-primary text-white shadow rounded" %>
+        </div>
+      </div>
+    <% end %>
+
+    <% @accepted_reservations.each do |reservation| %>
+      <div class="reservation-card">
+      <div class="reservation-card-content ">
+        <h5><strong><%= reservation.animal.name %></strong></h5>
+        <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price%>€</p>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
