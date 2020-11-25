@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" id= "rainbow">
 <%= link_to root_path, class: "navbar-brand" do %>
-  <%= image_tag "unicorn_logo.svg" %>
+  <%= image_tag "unicorn_logo.svg", :class => "logo_home" %>
 <% end %>
 <div class="brand_name">
   Air Mysticals
@@ -25,8 +25,8 @@
         <% # Si non connecté %>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Connexion", new_user_session_path, class: "btn btn-primary" %>
-          <%= link_to "Inscription", new_user_registration_path, class: "btn btn-primary" %>
+          <%= link_to "Connexion", new_user_session_path, class: "btn bg-primary text-white shadow rounded" %>
+          <%= link_to "Inscription", new_user_registration_path, class: "btn bg-primary text-white shadow rounded" %>
         </li>
       <% end %>
     </ul>
