@@ -1,0 +1,23 @@
+<%= link_to "retour", animals_path , class:"btn btn-outline-primary m-2" %>
+<div class="container m-auto p-2">
+  <div class= "row d-flex  ">
+    <div class="col-8">
+      <div class="style-backgroung-image" style="background-image:
+       url('<%= cl_image_path(@animal.photo.key, height: 600, width: 600, crop: :fill)%>')">
+      </div>
+    </div>
+
+    <div class=" col-4 d-flex align-items-center">
+      <div class="card-animal-show">
+        <ul class="list-group align-items-center">
+            <p> Petit nom : <%= @animal.name %></p>
+            <p> <%= @animal.description %></p>
+            <p> <%= @animal.location %></p>
+            <p> <%= @animal.age %> ans</p>
+            <p> <%= @animal.price_per_day %> € /jour</p>
+            <p> Loué(e) par <%= @animal.owner.username %> </p>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
