@@ -1,6 +1,6 @@
 .card-animal {
   // width: 300px;
-  height: 260px;
+  height: 360px;
   // margin: auto;
   overflow: hidden;
   // overflow-y: auto;
@@ -21,8 +21,12 @@
   }
 }
 
+.card-animal-linked:hover {
+  text-decoration: none !important;
+}
+
 .card-animal > img {
-  height: 70%;
+  height: 80%;
   width: 100%;
   object-fit: cover;
   border-top-left-radius: 10px;
