@@ -9,6 +9,8 @@
   font-family: 'Lobster', cursive;
   color: $blue;
   font-size: 4em;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -17,4 +19,9 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 50px;
+}
+
+.logo_homepage{
+  display: flex;
+  align-items: center;
 }
