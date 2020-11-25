@@ -1,14 +1,17 @@
 class ReservationsController < ApplicationController
 
   def accept
-    @reservation.status = "accepted"
+    @reservation = Booking.find(params[:id])
+    @reservation.update(reservation_params)
     redirect_to  dashboard_path
   end
 
   def deny
-    @reservation.status = "refused"
+    @reservation = Booking.find(params[:id])
+    @reservation.update(status: "denied")
     redirect_to  dashboard_path
 
   end
+
 
 end

@@ -9,3 +9,32 @@
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
   opacity: 0.8;
 }
+
+.reservation-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 8px 16px;
+  border: 1px solid rgb(235,235,235);
+}
+
+.reservation-card .reservation-card-content {
+  flex-grow: 1;
+  padding: 0 24px;
+}
+.reservation-card  p {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 12px;
+}
+
+.reservation-card  h5 {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 22px;
+}
+
+.reservation-card .reservation-card-actions {
+  display: flex;
+  width: 100%;
+}
