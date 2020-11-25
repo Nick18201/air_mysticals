@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $light_pink;
+  border-bottom: 2px dotted $pink;
+  border-top: 2px dotted $pink;
 }
 
 .brand_name{
