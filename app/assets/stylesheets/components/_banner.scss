@@ -1,12 +1,14 @@
 .banner {
   padding: 150px 0;
-  height: 60vh;
+  height: 80vh;
   margin-bottom: 1em;
-  background-color: black;
+  background-image: asset-url('banner_homepage.svg');
+  background-size: cover;
+  // background: center / contain no-repeat asset-url('banner_homepage.svg');
 }
+
 .container{
   // background-image: image('images/banner_homepage.svg');
-  // background-image: asset-url('banner_homepage.png');
   display: flex;
   flex-direction: column;
   // align-items: center;
@@ -23,14 +25,13 @@
 .banner h1 {
   margin: 0;
   color: $blue;
-  font-size: 4em;
+  font-size: 5em;
   align-items: center;
-  padding-bottom: 0.5em;
+  padding-bottom: 0.4em;
 }
 
 .banner p {
-  font-size: 20px;
+  font-size: 1.5em;
   font-weight: bold;
   color: $light-red;
-  opacity: .7;
 }
