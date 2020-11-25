@@ -1,0 +1,18 @@
+<div class="container">
+  <div>
+    <h1>Hello <%= @user%></h1>
+  </div>
+  <% @reservations.each do |reservation| %>
+    <div>
+    <% if reservation.status != "pending" || "accepted" %>
+      <%= reservation.animal.name %>
+      <%= reservation.id %>
+      <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price%>€</p>
+        <% if reservation.status == "pending" %>
+          <%= link_to "Invalider", deny_reservation_path(reservation), class:"btn btn-primary" %>
+          <%= link_to "Valider", accept_reservation_path(reservation), class:"btn btn-primary" %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
