@@ -11,8 +11,8 @@
         <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price%>€</p>
       </div>
 
-      <div class="reservation-card-actions justify-content-around ">
-        <%= link_to "Invalider", deny_reservation_path(reservation), class:"btn btn-primary text-white shadow rounded" %>
+      <div class="reservation-card-actions d-flex justify-content-between ">
+        <%= link_to "Invalider", deny_reservation_path(reservation), class:"btn btn-primary text-white shadow rounded m-7" %>
         <%= link_to "Valider", accept_reservation_path(reservation), class:"btn btn-primary text-white shadow rounded" %>
       </div>
     </div>
