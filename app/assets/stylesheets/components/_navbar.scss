@@ -1,12 +1,16 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: $light_pink;
+  border-bottom: 2px dotted $pink;
+  border-top: 2px dotted $pink;
 }
 
 .brand_name{
   font-family: 'Lobster', cursive;
   color: $blue;
   font-size: 4em;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,4 +19,9 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 50px;
+}
+
+.logo_homepage{
+  display: flex;
+  align-items: center;
 }
