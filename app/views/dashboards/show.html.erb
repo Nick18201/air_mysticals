@@ -1,11 +1,13 @@
 <div class="container">
   <div class="m-9">
     <h1>Hello <%= @user%></h1>
-  </div class="mb-9">
+  </div class="">
   <% @pending_reservations.each do |reservation| %>
     <div>
       <div class="reservation-card">
   <%# <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' class="avatar-large" /> %>
+  <%= cl_image_tag reservation.animal.photo.key, height: 50, width: 50, crop: :fill %>
+
         <div class="reservation-card-content ">
           <h5><strong><%= reservation.animal.name %></strong></h5>
           <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price%>€</p>
@@ -20,7 +22,9 @@
 
     <% @accepted_reservations.each do |reservation| %>
       <div class="reservation-card">
+      <%= cl_image_tag reservation.animal.photo.key, height: 50, width: 50, crop: :fill %>
       <div class="reservation-card-content ">
+
         <h5><strong><%= reservation.animal.name %></strong></h5>
         <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price%>€</p>
         </div>
