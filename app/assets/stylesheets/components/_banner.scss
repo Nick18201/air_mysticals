@@ -1,12 +1,12 @@
 .banner {
-  background-size: cover;
-  background-position: center;
   padding: 150px 0;
   height: 60vh;
   margin-bottom: 1em;
+  background-color: black;
 }
 .container{
   // background-image: image('images/banner_homepage.svg');
+  // background-image: asset-url('banner_homepage.png');
   display: flex;
   flex-direction: column;
   // align-items: center;
