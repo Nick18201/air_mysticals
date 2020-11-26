@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [] do
     member do
+      get :cancel
       patch :cancel
     end
   end
