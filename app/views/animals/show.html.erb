@@ -20,10 +20,10 @@
       </div>
       <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
         <h2>Ramenez-le chez vous!</h2>
-        <%= simple_form_for [@animal, @booking], method: "get" do |f| %>
+        <%= simple_form_for [@animal, @booking] do |f| %>
           <%= f.input :beginning_date, as: :string, required: true, :label => "Du", input_html: {id: "range_start"} %>
           <%= f.input :ending_date, as: :string, required: true, :label => "Au", input_html: {id: "range_end"} %>
-          <%= f.button :submit, "Réserver", class: "btn btn-warning float-right" %>
+          <%= f.submit "Réserver", class: "btn btn-warning float-right" %>
         <% end %>
       </div>
     </div>

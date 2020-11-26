@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to dashboard_path
     else
-      render "animals/show"
+      render "animals/show" #NE FONCTIONNE PAS CORRECTEMENT
     end
   end
 
