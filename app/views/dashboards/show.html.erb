@@ -24,7 +24,7 @@
 
                     <div class="reservation-card-content ">
                       <h5><strong><%= reservation.animal.name %></strong></h5>
-                      <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price %>€ par <%= reservation.user.name %> </p>
+                      <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price %>€ par <%= reservation.renter.username %> </p>
                     </div>
 
                     <div class="reservation-card-actions d-flex justify-content-between ">
