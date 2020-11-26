@@ -1,10 +1,10 @@
 import flatpickr from "flatpickr";
 import rangePlugin from "flatpickr/dist/plugins/rangePlugin";
+import { French } from "flatpickr/dist/l10n/fr.js"
 
-flatpickr("#range_start", {
+flatpickr(".datepicker", {
   altInput: true,
+  altFormat: "j F Y", //Date format when altInput is true
   allowInput: true,
-  plugins: [new rangePlugin({ input: "#range_end"})],
-  "locale": "ru", // TICKET => il faut setter la variable dans le local d'abord
-  // https://flatpickr.js.org/localization/
+  "locale": French,
 });
