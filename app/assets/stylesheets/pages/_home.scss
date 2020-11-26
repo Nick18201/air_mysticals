@@ -42,3 +42,21 @@
 // .desktop_demo{
 //   height: 300px;
 // }
+
+.container_index{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+}
+
+#map{
+  border: 3px dotted $light-red;
+  position: sticky;
+  top: 0px;
+  right: 0px;
+  align-items: center;
+}
+
+.info_index{
+  font-size: 11px;
+}
