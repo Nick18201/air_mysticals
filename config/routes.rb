@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
   # as an Owner
-  resources :my_animals, only: [:new, :create]
+  resources :my_animals, only: [:new, :create, :destroy]
   resources :reservations, only: [] do
     member do
       get :deny

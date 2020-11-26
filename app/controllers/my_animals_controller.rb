@@ -14,6 +14,19 @@ class MyAnimalsController < ApplicationController
     end
   end
 
+  def destroy
+    @animal = Animal.find(params[:id])
+    if @animal.destroy
+      flash[:success] = 'Animal was successfully deleted.'
+      redirect_to dashboard_path(@animal)
+    else
+      flash[:error] = 'Something went wrong'
+      redirect_to dashboard_path(@animal)
+    end
+  end
+
+  end
+
   private
 
   def animal_params
