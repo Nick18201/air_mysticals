@@ -19,6 +19,15 @@
         <% end %>
       </div>
     </div>
+    <div class="search_bar pt-5">
+          <%= form_tag animals_path, method: :get do %>
+          <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Une autre localisation ?"%>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <% end %>
+  </div>
   </div>
   <div>
   <div id="map"

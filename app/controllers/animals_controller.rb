@@ -2,7 +2,15 @@ class AnimalsController < ApplicationController
   # skip_before_action :authenticate_user!, only: :index, :show
 
   def index
-    @animals = Animal.all
+    if params[:query].present?
+      if Animal.where("location ILIKE ?", "%#{params[:query]}%") == []
+        @animals = Animal.all
+      else
+        @animals = Animal.where("location ILIKE ?", "%#{params[:query]}%")
+      end
+    else
+      @animals = Animal.all
+    end
 
     @markers = @animals.geocoded.map do |animal|
       {
