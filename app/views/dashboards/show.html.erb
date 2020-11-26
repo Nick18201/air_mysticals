@@ -52,7 +52,7 @@
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
         <div class="card-body">
           <div class="d-flex justify-content-around" >
-            <% @bookings.each do |booking| %>
+            <% @accepted_bookings.each do |booking| %>
               <div class="col-6">
                 <div class="card-renter-dashboard m-1">
                   <%= cl_image_tag booking.animal.photo.key, height: 350, width: 450, crop: :fill %>
@@ -63,6 +63,7 @@
                     </div>
                     <h2 class="card-renter-dashboard-pricing">
                     <%= booking.total_price %>€</h2>
+                    <%= link_to "Annuler", cancel_booking_path(booking), class: "btn btn-primary text-white shadow rounded" %>
                     <img src="<%= cl_image_path booking.renter.avatar.key, height: 50, width: 50, crop: :fill %>" class="card-renter-dashboard-photo avatar-bordered"/>
                   </div>
                 </div>

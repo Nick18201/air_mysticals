@@ -5,7 +5,9 @@ class DashboardsController < ApplicationController
     @reservations = current_user.reservations
     @pending_reservations = @reservations.where(status: "pending")
     @accepted_reservations = @reservations.where(status: "accepted")
+
     @bookings = current_user.bookings
+    @accepted_bookings = @bookings.where(status: "accepted")
   end
 
 end
