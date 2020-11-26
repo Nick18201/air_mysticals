@@ -5,6 +5,7 @@ class BookingsController < ApplicationController
     @animal = Animal.find(params[:animal_id])
     @booking.animal = @animal
     @booking.renter = current_user
+    raise
     if @booking.save
       redirect_to dashboard_path
     else
