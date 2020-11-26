@@ -1,58 +1,114 @@
 <div class="container container_dashboard mb-4">
-<% # Titre page %>
-  <div class="text-center mt-3">
-    <h1 class="text-warning">🦄 Hello <%= @user %>! 🦄</h1>
+  <div class="text-center mt-3 mb-4">
+    <h1 class="text-warning mt-2">🦄 Hello <%= @user %>! 🦄</h1>
   </div>
 
-  <% # Mes réservation validées et à valider %>
-  <div class="mes-reservations mb-4">
-    <h3 class="mt-2">Mes locations de Mysticals</h3>
-    <div class="mes-reservation à valider">
-      <h4 class="m-4">Mes réservation à valider</h4>
-      <% @pending_reservations.each do |reservation| %>
-      <div class="reservation-card">
-        <%= cl_image_tag reservation.animal.photo.key, height: 50, width: 50, crop: :fill %>
 
-        <div class="reservation-card-content ">
-          <h5><strong><%= reservation.animal.name %></strong></h5>
-          <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price %>€ par <%= reservation.user.name %> </p>
-        </div>
-
-        <div class="reservation-card-actions d-flex justify-content-between ">
-          <%= link_to "Refuser", deny_reservation_path(reservation), class: "btn btn-primary text-white shadow rounded" %>
-          <%= link_to "Valider", accept_reservation_path(reservation), class: "btn btn-primary text-white shadow rounded" %>
-        </div>
-      </div>
-      <% end %>
-    </div>
-    <div>
-      <h4 class="m-4">Mes réservation déjà validées</h4>
-      <% @accepted_reservations.each do |reservation| %>
-        <div class="reservation-card">
-          <%= cl_image_tag reservation.animal.photo.key, height: 50, width: 50, crop: :fill %>
-          <div class="reservation-card-content ">
-            <h5><strong><%= reservation.animal.name %></strong></h5>
-            <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price %>€</p>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <% # Mes locations de Mysticals %>
   <div id="accordion">
     <div class="card">
-      <div class="card-header" id="headingTwo">
+      <div class="card-header" id="headingOne">
         <h5 class="mb-0">
-          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             <h3 class="">Mes locations de Mysticals</h3>
+          </button>
+        </h5>
+      </div >
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+
+        <div class="mes-reservation à valider">
+          <h4 class="m-4">Mes réservation à valider</h4>
+            <% unless @pending_reservations == [] %>
+              <% @pending_reservations.each do |reservation| %>
+                <div class="reservation-card">
+                  <%= cl_image_tag reservation.animal.photo.key, height: 50, width: 50, crop: :fill %>
+
+                  <div class="reservation-card-content ">
+                    <h5><strong><%= reservation.animal.name %></strong></h5>
+                    <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price %>€ par <%= reservation.user.name %> </p>
+                  </div>
+
+                  <div class="reservation-card-actions d-flex justify-content-between ">
+                    <%= link_to "Refuser", deny_reservation_path(reservation), class: "btn btn-primary text-white shadow rounded" %>
+                    <%= link_to "Valider", accept_reservation_path(reservation), class: "btn btn-primary text-white shadow rounded" %>
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="text-center mb-4">
+                <p class=" mt-4 mb-4" >😢 Vous n'avez pas de réservation à valider !</p>
+              </div>
+            <% end %>
+          </div>
+          <div class="déja-valide">
+          <h4 class="m-4">Mes réservation déjà validées</h4>
+            <% unless @accepted_reservations == [] %>
+              <% @accepted_reservations.each do |reservation| %>
+                <div class="reservation-card">
+                  <%= cl_image_tag reservation.animal.photo.key, height: 50, width: 50, crop: :fill %>
+                  <div class="reservation-card-content ">
+                    <h5><strong><%= reservation.animal.name %></strong></h5>
+                    <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price %>€</p>
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="text-center mb-4">
+                <p class=" mt-4 mb-4" >😢 Vous n'avez pas encore réservation !</p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+
+
+     <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <h3 class="">Les réservaions de mon enclos</h3>
           </button>
         </h5>
       </div>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-        <div class="card-body">
-          <div class="d-flex justify-content-around" >
-            <% @accepted_bookings.each do |booking| %>
+        <div class="reservation-a-venir">
+          <h4 class="mt-4 ml-4">Mes réservation à venir</h4>
+          <% unless @accepted_bookings == [] %>
+            <div class="card-body">
+              <div class="d-flex justify-content-around" >
+                <% @accepted_bookings.each do |booking| %>
+                  <div class="col-6">
+                    <div class="card-renter-dashboard m-1">
+                      <%= cl_image_tag booking.animal.photo.key, height: 350, width: 450, crop: :fill %>
+                      <div class="card-renter-dashboard-infos">
+                        <div>
+                          <h2><%= booking.animal.name %></h2>
+                          <p><%= booking.animal.description %></p>
+                        </div>
+                        <h2 class="card-renter-dashboard-pricing">
+                        <%= booking.total_price %>€</h2>
+                        <img src="<%= cl_image_path booking.renter.avatar.key, height: 50, width: 50, crop: :fill %>" class="card-renter-dashboard-photo avatar-bordered"/>
+                      </div>
+                      <div class="text-center">
+                      <%= link_to "Annuler", cancel_booking_path(booking), class: "btn btn-primary text-white shadow rounded" %>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% else %>
+            <div class="text-center mb-4">
+              <p class=" mt-4 mb-4" >😢 Vous n'avez pas de réservation à venir !</p>
+            </div>
+          <% end %>
+        </div>
+        <div class="reservations-a-venir">
+        <h4 class="mt-4 ml-4">Mes réservation en attente de validation</h4>
+        <% unless @pending_bookings == [] %>
+          <div class="card-body">
+            <div class="d-flex justify-content-around" >
+              <% @pending_bookings.each do |booking| %>
               <div class="col-6">
                 <div class="card-renter-dashboard m-1">
                   <%= cl_image_tag booking.animal.photo.key, height: 350, width: 450, crop: :fill %>
@@ -63,12 +119,20 @@
                     </div>
                     <h2 class="card-renter-dashboard-pricing">
                     <%= booking.total_price %>€</h2>
-                    <%= link_to "Annuler", cancel_booking_path(booking), class: "btn btn-primary text-white shadow rounded" %>
                     <img src="<%= cl_image_path booking.renter.avatar.key, height: 50, width: 50, crop: :fill %>" class="card-renter-dashboard-photo avatar-bordered"/>
+                  </div>
+                  <div class="text-center">
+                  <%= link_to "Annuler", cancel_booking_path(booking), class: "btn btn-primary text-white shadow rounded" %>
                   </div>
                 </div>
               </div>
-            <% end %>
+              <% end %>
+        <% else %>
+              <div class="text-center mb-4">
+                <p class=" mt-4 mb-4" >😢 Vous n'avez pas de réservation en attente de validation !</p>
+              </div>
+        <% end %>
+            </div>
           </div>
         </div>
       </div>
