@@ -132,7 +132,7 @@
 .reservation-card  p {
   margin: 0;
   line-height: 1.4;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .reservation-card  h5 {
@@ -168,13 +168,13 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 100%;
-  height: 420px;
+  height: 470px;
 }
 
 .card-renter-dashboard > img {
-  height: 300px;
+
   width: 100%;
-  object-fit: cov;
+  object-fit: center;
 }
 
 .card-renter-dashboard h2 {
@@ -217,14 +217,26 @@
   border: white 1px solid;
 }
 
-.cards_dashboard {
+.cards-dashboard {
   width:100%;
+  padding-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
 }
 
 .card-dashboard-enclos{
   width:90%;
+  transition: 0.3s;
+  border-radius: 10px;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+  background-color: #fcf1f6;
 }
 
-.card-animal-infos-dashboard {
-  width:70%;
+.card-dashboard-enclos > img {
+  height: 320px;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }

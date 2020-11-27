@@ -13,12 +13,11 @@ class BookingsController < ApplicationController
       render "animals/show"
     end
   end
-  
+
   def cancel
     @booking = Booking.find(params[:id])
     @booking.update(status: "denied")
     redirect_to  dashboard_path
-
   end
   private
 
