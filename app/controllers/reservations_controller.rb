@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
 
   def accept
     @reservation = Booking.find(params[:id])
-    @reservation.update(reservation_params)
+    @reservation.update(status: "accepted")
     redirect_to  dashboard_path
   end
 

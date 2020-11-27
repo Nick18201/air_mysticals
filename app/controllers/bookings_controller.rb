@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   def create
     @booking = Booking.new(booking_params)
     @animal = Animal.find(params[:animal_id])
@@ -12,11 +13,16 @@ class BookingsController < ApplicationController
       render "animals/show"
     end
   end
+  
+  def cancel
+    @booking = Booking.find(params[:id])
+    @booking.update(status: "denied")
+    redirect_to  dashboard_path
 
+  end
   private
 
   def booking_params
     params.require(:booking).permit(:animal_id, :beginning_date, :ending_date)
   end
-
 end

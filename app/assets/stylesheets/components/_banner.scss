@@ -1,8 +1,10 @@
 .banner {
   padding: 150px 0;
-  height: 65vh;
-  background-image: asset-url('banner_homepage.svg');
+  height: 80vh;
+  background-image: asset-url('home_pic.jpg');
   background-size: cover;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .container{
@@ -20,7 +22,7 @@
 
 .banner h1 {
   margin: 0;
-  color: $blue;
+  color: white;
   font-size: 5em;
   align-items: center;
   padding-bottom: 0.4em;

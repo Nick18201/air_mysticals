@@ -1,9 +1,16 @@
 <div class="banner">
   <div class="container">
-    <h1 class= "home_title">Avec Air Mysticals louez des animaux fantastiques</h1>
-    <p class= "home_p">Et mettez des paillettes dans votre vie !</p>
-    <a id= btn-homepage class="btn bg-primary text-white shadow rounded" href="#">Here we go !</a>
-    <%= link_to "Here we go!", animals_path, id: "btn-homepage", class: "btn bg-primary text-white shadow rounded" %>
+    <h1 class= "home_title">Location d' animaux fantastiques</h1>
+  </div>
+  <div class="search_bar">
+  <%= form_tag animals_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Trouvez votre mystical à côté de chez vous"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
   </div>
 </div>
 <div class="container container_body">
@@ -26,23 +33,25 @@
     </div>
   </div>
 </div>
-<div class="container pb-3">
-  <h1 class= "text-warning">Notre sélection de Mysticals prêts à être loués</h1>
-  <div class="row">
-    <div class="col">
-      <div class="cards m-2">
-        <% @animals.each do |animal| %>
-          <%= link_to animal_path(animal), class:"card-animal-linked" do %>
-            <div class="card-animal">
-              <%= cl_image_tag animal.photo.key, width: 400, crop: :fill%>
-              <div class="card-animal-infos">
-                <h3 class="mb-0"><%= animal.name %></h3>
-                <img src="<%=cl_image_path animal.owner.avatar.key, width: 50, crop: :fill%>" class="card-animal-user avatar-bordered" />
-                <p class="card-animal-pricing"><%= "#{animal.price_per_day} €/j"%></p>
+<div class="pb-3">
+  <div class="home_background">
+    <div class="row">
+      <div class="col">
+        <h1 class= "text-danger align-text-center pl-5 pt-4">Notre sélection de Mysticals prêts à être loués</h1>
+        <div class="cards_home m-2">
+          <% @animals.each do |animal| %>
+            <%= link_to animal_path(animal), class:"card-animal-linked" do %>
+              <div class="card-animal">
+                <%= cl_image_tag animal.photo.key, width: 400, crop: :fill%>
+                <div class="card-animal-infos">
+                  <h3 class="mb-0"><%= animal.name %></h3>
+                  <img src="<%=cl_image_path animal.owner.avatar.key, width: 50, crop: :fill%>" class="card-animal-user avatar-bordered" />
+                  <p><%="#{animal.description}"%></p>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
