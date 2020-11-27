@@ -22,7 +22,7 @@
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path current_user.avatar.key, width: 100, crop: :fill %>"/>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Mon tableau de bord", dashboard_path, class: "dropdown-item" %>
-            <%= link_to "Ajouter un Mystical", my_animals_new_path, class: "dropdown-item" %>
+            <%= link_to "Ajouter un Mystical", new_my_animal_path, class: "dropdown-item" %>
             <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
