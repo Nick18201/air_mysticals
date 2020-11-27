@@ -2,7 +2,7 @@
 <%= link_to root_path, class: "navbar-brand" do %>
   <%= image_tag "unicorn_logo.svg", :class => "logo_home" %>
 <% end %>
-<div class="search_bar">
+<div class="search_bar_index">
   <%= form_tag animals_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
