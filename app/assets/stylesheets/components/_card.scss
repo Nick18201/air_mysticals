@@ -1,6 +1,6 @@
 .card-animal {
   // width: 300px;
-  height: 360px;
+  height: 450px;
   // margin: auto;
   // overflow: hidden;
   // overflow-y: auto;
@@ -26,7 +26,7 @@
 }
 
 .card-animal > img {
-  height: 80%;
+  height: 320px;
   width: 100%;
   object-fit: cover;
   border-top-left-radius: 10px;
@@ -35,11 +35,19 @@
 
 
 .card-animal .card-animal-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  h3{
+    padding-left: 20px;
+    padding-top: 10px;
+    color: $blue;
+  }
+  p{
+    padding: 10px 20px;
+    color: $gray;
+    font-size: 0.9em;
+  }
 }
 
 .card-animal-infos .card-animal-user {
@@ -48,9 +56,24 @@
   top: -20px;
   width: 40px;
 }
+
+
+.animal_show {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+}
 // ***********************************************
 // GRID CARDS
 .cards {
+  padding-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 26px;
+}
+
+.cards_home {
+  padding: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 26px;
@@ -73,23 +96,26 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
+
+
+// Dashboard => Reservation cards
 
 .reservation-card {
   display: flex;
@@ -120,10 +146,11 @@
   width: 180px;
 }
 
-.card-animal-show {
-  // width: 400px;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 1);
+.card-booking {
+  padding: 4px;
+  border: solid #d39fb6;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .style-backgroung-image{
@@ -132,6 +159,72 @@
   background-position: center;
 }
 
-.container_dashboard{
-  height: 100vh;
+
+
+// Dashoboard => Renter card
+
+.card-renter-dashboard {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 100%;
+  height: 420px;
+}
+
+.card-renter-dashboard > img {
+  height: 300px;
+  width: 100%;
+  object-fit: cov;
+}
+
+.card-renter-dashboard h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-renter-dashboard p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-renter-dashboard .card-renter-dashboard-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-renter-dashboard-infos .card-renter-dashboard-photo {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+}
+
+.card-renter-dashboard-photo {
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
+
+.avatar-bordered {
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+}
+
+.cards_dashboard {
+  width:100%;
+}
+
+.card-dashboard-enclos{
+  width:90%;
+}
+
+.card-animal-infos-dashboard {
+  width:70%;
 }

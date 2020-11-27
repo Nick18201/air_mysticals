@@ -2,13 +2,15 @@
 <%= link_to root_path, class: "navbar-brand" do %>
   <%= image_tag "unicorn_logo.svg", :class => "logo_home" %>
 <% end %>
-<div class="logo_homepage">
-<i class="fas fa-paw"></i>
-<div class="brand_name">
-  Air Mysticals
-</div>
-<i class="fas fa-paw"></i>
-</div>
+<div class="search_bar">
+  <%= form_tag animals_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Une autre localisation ?"
+    %>
+  <% end %>
+  </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -18,13 +20,8 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
       <% # Si connecté %>
-      <% if current_user.avatar.present? %>
-        <% url = cl_image_path current_user.avatar.key, width: 100, crop: :fill %>
-      <% else %>
-        <% url = "https://kitt.lewagon.com/placeholder/users/ssaunier"  %>
-      <% end %>
         <li class="nav-item dropdown">
-          <img class="avatar-large dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= url %>"/>
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path current_user.avatar.key, width: 100, crop: :fill %>"/>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Mon tableau de bord", dashboard_path, class: "dropdown-item" %>
             <%= link_to "Ajouter un Mystical", new_my_animal_path, class: "dropdown-item" %>

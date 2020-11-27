@@ -1,0 +1,17 @@
+.container_index{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+}
+
+#map{
+  border-left: 2px dotted $pink;
+  position: sticky;
+  top: 0px;
+  right: 0px;
+  align-items: center;
+}
+
+.info_index{
+  font-size: 11px;
+}

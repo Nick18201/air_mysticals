@@ -1,23 +1,44 @@
-<%= link_to "retour", animals_path , class:"btn btn-outline-warning m-2" %>
-<div class="container m-auto p-2">
-  <div class= "row d-flex  ">
-    <div class="col-8">
+<%= render "shared/navbar" %>
+
+<div class="container mx-auto my-3">
+  <div class= "row p-3 d-flex animal_show">
+    <div class="col-5">
+
       <div class="style-backgroung-image" style="background-image:
        url('<%= cl_image_path(@animal.photo.key, height: 600, width: 600, crop: :fill)%>')">
       </div>
     </div>
 
-    <div class="col-4 d-flex align-items-center">
-      <div class="card-animal-show">
-        <ul class="list-group align-items-center">
-            <p> Petit nom : <%= @animal.name %></p>
-            <p> <%= @animal.description %></p>
-            <p> <%= @animal.location %></p>
-            <p> <%= @animal.age %> ans</p>
-            <p> <%= @animal.price_per_day %> € /jour</p>
-            <p> Loué(e) par <%= @animal.owner.username %> </p>
-        </ul>
+    <div class="col-7 d-flex flex-column justify-content-around">
+      <div class="d-flex flex-column align-items-center justify-content-between">
+        <h1 class="text-center text-warning"><%= @animal.name %></h1>
+        <p class="mb-4"><i class="fas fa-birthday-cake text-warning"></i> <%= @animal.age %> ans</p>
+      <div class="m-2 card-booking form-wrapper px-2 py-3" data-price="<%=@animal.price_per_day%>">
+        <h3 class="text-center text-warning">Vous l'aimez déjà ? Ramenez-le chez vous!</h3>
+        <%= simple_form_for [@animal, @booking], html: { class: "form-inline" } do |f| %>
+          <%= f.input :beginning_date, label: "Du", as: :string, required: false, input_html: {class: "m-2 datepicker"} %>
+          <%= f.input :ending_date, label: "Au",as: :string, required: false, input_html: {class: "m-2 datepicker"} %>
+          <%= f.submit "Réserver", class: "btn btn-warning"%>
+        <% end %>
+        <hr>
+        <h4 id="total_price_booking" class="text-center p-2" ></h4>
       </div>
+      </div>
+      <h3 class="text-center"><%= @animal.description %></h3>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+          <div class="d-flex flex-row justify-content-between align-items-center">
+            <h3><i class="fas fa-map-marked-alt text-warning"></i></h3>
+            <div class="d-flex flex-column align-items-center">
+              <div><%= @animal.location.split(",").first %></div>
+              <div class="text-capitalize"><%= @animal.location.split(",").last %></div>
+            </div>
+          </div>
+      </div>
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="font-weight-bold"><i class="far fa-credit-card text-warning"></i> <%= @animal.price_per_day %> €</h3>
+        <p class="font-italic"><i class="fas fa-user text-warning"></i> Loué(e) par <%= @animal.owner.username %> </p>
+      </div>
+      <%= link_to "Retour", animals_path , class:"font-italic btn btn-outline-warning offset-md-10" %>
     </div>
   </div>
 </div>

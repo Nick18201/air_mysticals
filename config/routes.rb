@@ -11,12 +11,13 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [] do
     member do
+      get :cancel
       patch :cancel
     end
   end
 
   # as an Owner
-  resources :my_animals, only: [:new, :create]
+  resources :my_animals, only: [:new, :create, :destroy, :edit, :update]
   resources :reservations, only: [] do
     member do
       get :deny

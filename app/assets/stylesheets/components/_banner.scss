@@ -1,8 +1,11 @@
 .banner {
   padding: 150px 0;
-  height: 65vh;
-  background-image: asset-url('banner_homepage.svg');
+  height: 80vh;
+  background-image: asset-url('home_pic.jpg');
   background-size: cover;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-bottom: 40px;
 }
 
 .container{
@@ -20,14 +23,36 @@
 
 .banner h1 {
   margin: 0;
-  color: $blue;
+  color: white;
   font-size: 5em;
   align-items: center;
   padding-bottom: 0.4em;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
 }
 
 .banner p {
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: bold;
-  color: $light-red;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.search_bar_form{
+  padding-top: 9em;
+  justify-content: center;
+  #query{
+    width: 800px;
+    border-radius: 20px;
+  }
+}
+@media (max-width: 1200px) {
+  .search_bar_form{
+    padding-top: 5em;
+    justify-content: center;
+    #query{
+      width: 800px;
+      border-radius: 20px;
+    }
+  }
 }
