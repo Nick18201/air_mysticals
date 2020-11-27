@@ -128,7 +128,7 @@
                       </div>
                       <h2 class="card-renter-dashboard-pricing">
                       <%= booking.total_price %>€</h2>
-                      <img src="<%= cl_image_path booking.renter.avatar.key, height: 50, width: 50, crop: :fill %>" class="card-renter-dashboard-photo avatar-bordered"/>
+                      <img src="<%= cl_image_path booking.animal.owner.avatar.key, height: 50, width: 50, crop: :fill %>" class="card-renter-dashboard-photo avatar-bordered"/>
                     </div>
                     <div class="text-center">
                     <%= link_to "Annuler", cancel_booking_path(booking), class: "btn btn-primary text-white shadow rounded" %>
@@ -186,5 +186,6 @@
         </div>
       </div>
     </div>
-    <div style="height:150px"></div>
+    <div style="height:50px"></div>
   </div>
+</div>
