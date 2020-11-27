@@ -2,41 +2,44 @@
 <div class="banner">
   <div class="container">
     <h1 class= "home_title">Location d' animaux fantastiques</h1>
+    <p class="tagline text-white"> Pour mettre des pailletes dans son quotidien</p>
   </div>
   <div class="search_bar">
-  <%= form_tag animals_path, method: :get do %>
+  <%= form_tag animals_path, class: "form-inline search_bar_form", method: :get do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
+      class: "form-control mr-2",
       placeholder: "Trouvez votre mystical à côté de chez vous"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Search", class: "btn btn-primary text-white" %>
   <% end %>
   </div>
 </div>
-<div class="container container_body">
+
+<div class="container_body">
+
+  <h1 class="text-warning text-center mb-5"> Comment ça fonctionne ?</h1>
   <div class="container_demo">
     <div class="demo_left">
       <i class="desktop_1"></i>
-      <%# <%= image_tag "desktop_demo.svg" %>
-      <i class="fas fa-desktop fa-10x"></i>
-      <p class= "demo_text"><strong>Affichez</strong> un animal fantastique
-      consultez son prix et soumettez votre requête auprès du <strong>loueur partenaire</strong>.</p>
-      <i class="fas fa-desktop fa-10x"></i>
+      <%= image_tag "test.svg", class: "demo_showcase"%>
+      <p class= "demo_text"><strong>Découvrez</strong> nos mysticals par localisation
+      et soumettez votre requête auprès du <strong>loueur partenaire</strong>.</p>
+      <%= image_tag "test.svg", class: "demo_showcase"%>
     </div>
     <div class="demo_right">
-      <p class= "demo_text"><strong>Louez</strong> un animal fantastique
-      est devenu plus simple que jamais grâce à notre technologie <strong>révolutionnaire</strong>.
+      <p class= "demo_text"><strong>Louez</strong> un animal fantastique simplement.
       Vous pouvez consulter tout notre bestiaire d'un simple clic.</p>
-      <i class="fas fa-desktop fa-10x"></i>
+      <%= image_tag "test.svg", class: "demo_showcase"%>
       <p class= "demo_text">
       Découvrez votre <strong>dashboard personnel</strong> pour gérer vos réservations et vos propres locations de <strong>Mysticals</strong>.</p>
     </div>
   </div>
 </div>
+
 <div class="pb-3">
   <div class="home_background">
-    <div class="row">
+    <div class="rows">
       <div class="col">
         <h1 class= "text-danger align-text-center pl-5 pt-4">Notre sélection de Mysticals prêts à être loués</h1>
         <div class="cards_home m-2">
