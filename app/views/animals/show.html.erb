@@ -1,6 +1,9 @@
+<%= render "shared/navbar" %>
+
 <div class="container mx-auto my-3">
   <div class= "row p-3 d-flex animal_show">
     <div class="col-5">
+
       <div class="style-backgroung-image" style="background-image:
        url('<%= cl_image_path(@animal.photo.key, height: 600, width: 600, crop: :fill)%>')">
       </div>

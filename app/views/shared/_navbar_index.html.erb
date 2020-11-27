@@ -1,0 +1,40 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon" id= "rainbow">
+<%= link_to root_path, class: "navbar-brand" do %>
+  <%= image_tag "unicorn_logo.svg", :class => "logo_home" %>
+<% end %>
+<div class="search_bar">
+  <%= form_tag animals_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Une autre localisation ?"
+    %>
+  <% end %>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <% if user_signed_in? %>
+      <% # Si connecté %>
+        <li class="nav-item dropdown">
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path current_user.avatar.key, width: 100, crop: :fill %>"/>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Mon tableau de bord", dashboard_path, class: "dropdown-item" %>
+            <%= link_to "Ajouter un Mystical", new_my_animal_path, class: "dropdown-item" %>
+            <%= link_to "Deconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+        <% # Si non connecté %>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Connexion", new_user_session_path, class: "btn bg-primary text-white shadow rounded" %>
+          <%= link_to "Inscription", new_user_registration_path, class: "btn bg-primary text-white shadow rounded" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
