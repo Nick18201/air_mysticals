@@ -1,7 +1,8 @@
 <%= render "shared/navbar" %>
 <div class="container container_dashboard mb-4">
+
 <div>
-<div class="btn btn-primary text-white shadow rounded mt-4"> Rechercher un animal
+<%= link_to "Rechercher un Mystical", animals_path, class: "btn btn-primary text-white shadow rounded mt-4" %>
 </div>
   <div class="text-center mt-4 mb-4">
     <h1 class="text-warning mt-2">🦄 Hello <%= @user %>! 🦄</h1>
@@ -17,9 +18,8 @@
         </h5>
       </div >
       <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-
         <div class="mes-reservation à valider  mb-4">
-          <h4 class="m-4">Mes réservation à valider</h4>
+          <h4 class="m-4">Mes réservations à valider</h4>
             <% unless @pending_reservations == [] %>
               <% @pending_reservations.each do |reservation| %>
                 <div class="container" style="width:100">
@@ -28,8 +28,9 @@
 
                     <div class="reservation-card-content ">
                       <h5><strong><%= reservation.animal.name %></strong></h5>
-                      <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price %>€ par <%= reservation.renter.username %> </p>
+                      <p>Réservation du <z class="text-warning"><%= reservation.beginning_date.strftime("%d-%m") %> au <%= reservation.ending_date.strftime("%d-%m") %></z> pour un montant de <strong><%= reservation.total_price %> €</strong> par <%= reservation.renter.username %> </p>
                     </div>
+
 
                     <div class="reservation-card-actions d-flex justify-content-between ">
                       <%= link_to "Refuser", deny_reservation_path(reservation), class: "btn btn-primary text-white shadow rounded" %>
@@ -45,7 +46,7 @@
             <% end %>
           </div>
           <div class="deja-valide mb-4">
-          <h4 class="m-4">Mes réservation déjà validées</h4>
+          <h4 class="m-4">Mes réservations déjà validées</h4>
             <% unless @accepted_reservations == [] %>
               <% @accepted_reservations.each do |reservation| %>
                 <div class="container" style="width:100">
@@ -55,6 +56,9 @@
                       <h5><strong><%= reservation.animal.name %></strong></h5>
                       <p>Réservation du <%= reservation.beginning_date %> au <%= reservation.ending_date %> pour un montant de <%= reservation.total_price %>€</p>
                     </div>
+                    <div class="text-center">
+                        <%= link_to "Annuler", cancel_booking_path(reservation), class: "btn btn-primary text-white shadow rounded" %>
+                        </div>
                   </div>
                 </div>
               <% end %>
@@ -137,50 +141,50 @@
                   <p class=" mt-4 mb-4" >😢 Vous n'avez pas de réservation en attente de validation !</p>
                 </div>
           <% end %>
-              </div>
             </div>
           </div>
-          <div class="card">
-    <div class="card-header" id="headingThree">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-        <h3 class="">Mon enclos de Mysticals </h3>
-        </button>
-      </h5>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-      <div class="card-body">
-        <div class="row ">
-          <div class="col ">
-            <div class="cards-dashboard d-flex ">
-              <% @animals.each do |animal| %>
-                <%= link_to animal_path(animal), class: "card-animal-description" do %>
-                  <div class="card-dashboard-enclos">
-                    <%= cl_image_tag animal.photo.key, width: 250, height: 300, crop: :fill %>
-                    <div class="d-flex justify-content-between">
-                      <div class="card-animal-infos-dashboard">
-                        <h3 class="mb-0"><%= animal.name %></h3>
-                        <p><%= "#{animal.description}" %></p>
-                      </div>
-                <% end %>
-                      <div>
-                        <%= link_to my_animal_path(animal),
-                                    data: { confirm: "Etes vous certain de vouloir supprimer ?" }, method: :delete do %>
-                          <i class="fas fa-trash-alt m-4"></i>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <h3 class="">Mon enclos de Mysticals </h3>
+            </button>
+          </h5>
+        </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+          <div class="row ">
+            <div class="col ">
+              <div class="cards-dashboard ">
+                <% @animals.each do |animal| %>
+                    <div class="card-dashboard-enclos">
+                      <%= cl_image_tag animal.photo.key, width: 250, height: 300, crop: :fill %>
+                      <div class="d-flex justify-content-between">
+                        <div class="card-animal-infos-dashboard">
+                        <%= link_to animal_path(animal) do %>
+                          <h3 class="mb-0 mt-2 ml-3"><%= animal.name %></h3>
                         <% end %>
-                        <% # <%= link_to edit_my_animal_path(animal) do %>
-                          <i class="fas fa-edit"></i>
-                        <% # <% end %>
+                      </div>
+                        <div class="pr-3">
+                          <%= link_to my_animal_path(animal),
+                                      data: { confirm: "Etes vous certain de vouloir supprimer ?" }, method: :delete do %>
+                            <i class="fas fa-trash-alt m-4 text-warning"></i>
+                          <% end %>
+                          <%= link_to edit_my_animal_path(animal) do %>
+                            <i class="fas fa-edit text-warning" ></i>
+                        <% end %>
+                        </div>
                       </div>
                     </div>
-                  </div>
-            <% end %>
+              <% end %>
                 </div>
               </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  <div style="height:100px">
+    <div style="height:150px"></div>
   </div>
-</div>
