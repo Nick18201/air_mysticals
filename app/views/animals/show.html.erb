@@ -15,7 +15,7 @@
         <%= simple_form_for [@animal, @booking], html: { class: "form-inline" } do |f| %>
           <%= f.input :beginning_date, label: "Du", as: :string, required: false, input_html: {class: "m-2 datepicker"} %>
           <%= f.input :ending_date, label: "Au",as: :string, required: false, input_html: {class: "m-2 datepicker"} %>
-          <%= f.submit "Réserver", class: "btn btn-warning" %>
+          <%= f.submit "Réserver", class: "btn btn-warning" , data: { confirm: "Confirmer votre réservation pour #{@animal.name} du #{@booking.beginning_date} au #{@booking.ending_date}" }%>
         <% end %>
         <hr>
         <h4 id="total_price_booking" class="text-center p-2" ></h4>
@@ -32,7 +32,7 @@
           </div>
       </div>
       <div class="d-flex justify-content-between align-items-center">
-        <p class="font-weight-bold"><i class="far fa-credit-card text-warning"></i> <%= @animal.price_per_day %> €</p>
+        <h3 class="font-weight-bold"><i class="far fa-credit-card text-warning"></i> <%= @animal.price_per_day %> €</h3>
         <p class="font-italic"><i class="fas fa-user text-warning"></i> Loué(e) par <%= @animal.owner.username %> </p>
       </div>
       <%= link_to "Retour", animals_path , class:"font-italic btn btn-outline-warning offset-md-10" %>

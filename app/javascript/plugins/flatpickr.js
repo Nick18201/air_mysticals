@@ -5,9 +5,9 @@ import { French } from "flatpickr/dist/l10n/fr.js"
 const initflatpickr = () => {
   flatpickr(".datepicker", {
     altInput: true,
-    altFormat: "j F Y", //Date format when altInput is true
+    altFormat: "j/n/Y", //Date format when altInput is true
     allowInput: true,
-    "locale": French,
+    // "locale": French,
   });
 };
 
