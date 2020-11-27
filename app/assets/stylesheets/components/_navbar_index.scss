@@ -7,13 +7,12 @@
   background-size: 50px;
 }
 
-
-.brand_name{
-  font-family: 'Lobster', cursive;
-  color: $blue;
-  font-size: 2em;
-  padding-left: 15px;
-  padding-right: 15px;
+.search_bar_index{
+  justify-content: center;
+  #query{
+    width: 800px;
+    border-radius: 20px;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
