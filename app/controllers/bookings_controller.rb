@@ -4,7 +4,8 @@ class BookingsController < ApplicationController
     @animal = Animal.find(params[:animal_id])
     @booking.animal = @animal
     @booking.renter = current_user
-    @booking.total_price = @animal.price_per_day * (@booking.ending_date - @booking.beginning_date).to_i
+    # View in params make it look like beginning date is equal to a range but it's not actually the case in the console
+    @booking.total_price = @animal.price_per_day * (1+(@booking.ending_date - @booking.beginning_date).to_i)
     if @booking.save
       redirect_to dashboard_path
     else

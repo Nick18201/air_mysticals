@@ -6,9 +6,9 @@ const getPrice = () => {
 
 
   if (startDate) {
-    endDate.addEventListener("change", (event) => {
+    startDate.addEventListener("change", (event) => {
       // Do something (callback)
-      let numberOfDays = Math.floor((Date.parse(endDate.value)-Date.parse(startDate.value))/60000000)
+      let numberOfDays = 1+Math.floor((Date.parse(startDate.value.substring(14,24))-Date.parse(startDate.value.substring(0,10)))/86400000)
       let animalPricePerDay = parseInt(animalPricePerDayData.dataset.price,10)
       let totalPrice = numberOfDays * animalPricePerDay
       if (!(totalPrice) || totalPrice<= 0) {
