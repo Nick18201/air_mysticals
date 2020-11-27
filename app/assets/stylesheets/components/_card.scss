@@ -56,6 +56,13 @@
   top: -20px;
   width: 40px;
 }
+
+
+.animal_show {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+}
 // ***********************************************
 // GRID CARDS
 .cards {
@@ -139,12 +146,11 @@
   width: 180px;
 }
 
-//  ???
-
-.card-animal-show {
-  // width: 400px;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 1);
+.card-booking {
+  padding: 4px;
+  border: solid #d39fb6;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .style-backgroung-image{
@@ -209,4 +215,16 @@
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: white 1px solid;
+}
+
+.cards_dashboard {
+  width:100%;
+}
+
+.card-dashboard-enclos{
+  width:90%;
+}
+
+.card-animal-infos-dashboard {
+  width:70%;
 }

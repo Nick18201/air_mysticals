@@ -17,8 +17,11 @@ class MyAnimalsController < ApplicationController
   end
 
   def destroy
+    @bookings = current_user.bookings
     if @my_animal.destroy
       flash[:success] = 'Animal was successfully deleted.'
+
+      @bookings.where(status: "denied")
       redirect_to dashboard_path(@my_animal)
     else
       flash[:error] = 'Something went wrong'
